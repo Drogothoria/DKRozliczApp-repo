@@ -1,1 +1,52 @@
 ARRAY OBJECT MENU
+
+git branch -M main
+git push -u origin main
+
+
+// main.js or main.ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import { createVuetify } from 'vuetify'
+
+// Import Material Design Icons
+import '@mdi/font/css/materialdesignicons.css'
+
+// Import Vuetify styles
+import 'vuetify/styles'
+
+const vuetify = createVuetify({
+  icons: {
+    defaultSet: 'mdi', // This is already the default value
+  },
+  // Other Vuetify options...
+})
+
+createApp(App)
+  .use(router)
+  .use(vuetify)
+  .mount('#app')
+
+
+
+  viteconfigjs 
+  // vite.config.js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      sass: {
+        additionalData: ['@import "@/styles/variables.scss"', ''].join('\n'),
+      },
+    },
+  },
+})
